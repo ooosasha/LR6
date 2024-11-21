@@ -1,19 +1,19 @@
-function checkNumber(num) {
-    return new Promise((loader, result) => {
-      if (num > 10) {
-        loader("Число більше 10");
-      } else {
-        result("Число менше або дорівнює 10");
-      }
-    });
-  }
-  
+const loader = document.getElementById("loader");
+const result = document.getElementById("result");
 
-  checkNumber(15)
-    .then(message => {
-      console.log(message); 
-    })
-    .catch(error => {
-      console.error(error); 
-    });
-  
+loader.style.display = "block"; 
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Hello, World!"); 
+  }, 2000);
+});
+
+promise
+  .then((message) => {
+    loader.style.display = "none"; 
+    result.textContent = message; 
+  })
+  .catch((error) => {
+    loader.style.display = "none";
+  });
