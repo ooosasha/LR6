@@ -8,7 +8,7 @@ function checkNumber(num) {
     });
   }
   
-  // Використання функції
+
   checkNumber(15)
     .then(message => {
       console.log(message); 
